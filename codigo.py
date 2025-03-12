@@ -33,24 +33,24 @@ outlook = win32.Dispatch('outlook.application')
 mail = outlook.CreatItem(0)
 mail.To = 'meduardarodrigues@gmail.com'
 mail.Subject = 'Relatório de Vendas'
-mail.HTMLBody= '''
-Prezadas,
+mail.HTMLBody= f''' 
+<p>Prezadas,
 Segue o Relatório de vendas por cada loja!
-
-
-Faturamento: {}
-
-
-Quantidade Vendida: {}
-
-
-Ticket Médio dos Produtos em cada Loja: {}
-
-
-Qualquer duvida estarei á disposição!!
-Att.,
-Maria
-'''
+    
+    
+    Faturamento: {faturamento.to_html()}
+    
+    
+    Quantidade Vendida: {quantidade.to_html()}
+    
+    
+    Ticket Médio dos Produtos em cada Loja: {ticket_medio.to_html()}
+    
+    
+    Qualquer duvida estarei á disposição!!
+    Att.,
+    Maria</p>
+    '''
 
 
 mail.Send()
